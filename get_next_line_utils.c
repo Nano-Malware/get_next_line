@@ -22,8 +22,6 @@ char *gnl_strchr(const char *s, int c)
       return (char *)(s);
     s++;
   }
-  if (*s == (unsigned char)c)
-    return (char *)(s);
   return (NULL);
 }
 
@@ -56,16 +54,7 @@ char	*gnl_strjoin(char *stash, char *buf)
 char	*gnl_substr(const char *s, size_t start, size_t len)
 {
   size_t i;
-  size_t slen;
   char *res;
-  if (!s)
-    return (NULL);
-
-  slen = gnl_strlen(s);
-  if (start > slen)
-    start = slen;
-  if (len > slen - start)
-    len = slen - start;
 
   res = malloc(len + 1);
   if (!res)

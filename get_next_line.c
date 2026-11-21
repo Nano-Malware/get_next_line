@@ -10,7 +10,7 @@ static char *free_all(char *a, char *b)
 static char *extract_line(char *stash)
 {
   size_t len;
-  if (!stash || !stash[0])
+  if (!stash[0])
     return (NULL);
   len = 0;
   while (stash[len] && stash[len] != '\n')
@@ -24,9 +24,9 @@ static char *extract_line(char *stash)
 static char *read_to_stash(int fd, char *stash)
 {
   char *buf;
-  int bytes;
+  ssize_t bytes;
 
-  buf = malloc(BUFFER_SIZE + 1);
+  buf = malloc((size_t)BUFFER_SIZE + 1);
   if(!buf)
     return (free_all(stash, NULL));
   bytes = 1;
@@ -47,6 +47,7 @@ static char *read_to_stash(int fd, char *stash)
 static char	*trim_stash(char *stash)
 {
   char *n;
+  char *rest;
 
   n = gnl_strchr(stash, '\n');
   if (!n || !n[1])
