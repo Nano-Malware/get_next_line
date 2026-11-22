@@ -41,6 +41,6 @@ For the bonus, I use `static char *stash[1024];` and access it with `stash[fd]`.
 # Resources
 
 - [`read(2)` manual](https://man7.org/linux/man-pages/man2/read.2.html)
-- [C storage duration](https://en.cppreference.com/w/c/language/storage_duration)
+- [C static variabl](https://www.geeksforgeeks.org/c/static-variables-in-c/)
 
 **AI use:** I used AI to explain the `read(2)` manual and static variables, review my understanding of the read/stash algorithm and memory management, suggest additional test cases, and clarify compilation and terminal commands. I wrote the implementation myself and used the explanations as learning and review support.
